@@ -27,17 +27,18 @@ private:
      * Coordenada y
      */
     double y;
-    
+
 public:
-    
+
     /**
      * Constructor por defecto: pondra a 0 el valor de las
      * coordenadas. A implementar
      */
     Punto() {
-        ...................................................
+      x = 0;
+      y = 0;
     }
-    
+
     /**
      * Constructor que permite asignar valor a los datos miembro.
      * A implementar
@@ -45,48 +46,49 @@ public:
      * @param vy
      */
     Punto(double vx, double vy) {
-        ...................................................
+        x = vx;
+        y = vy;
     }
-    
+
     /**
      * Metodo de acceso al dato miembro x. A implementar
      * @return
      */
     double getX() const {
-        ...................................................
+        return x;
     }
-    
+
     /**
      * Metodo de acceso al dato miembro y. A implementar
      * @return
      */
     double getY() const {
-        ...................................................
+        return y;
     }
-    
+
     /**
      * Metodo para asignar valor al dato miembro x. A implementar
      * @param vx
      */
     void setX(double vx) {
-        ...................................................
+        x = vx;
     }
-    
+
     /**
      * Metodo para asignar valor al dato miembro Y. A implementar
      * @param vy
      */
     void setY(double vy) {
-        ...................................................
+        y = vy;
     }
-    
+
     /**
      * Muestra el contenido del objeto por pantalla. A implementar
      * fuera del ambito de declaracion de la clase. Por eso aparece
      * aqui unicamente la declaracion
      */
     void mostrar() const;
-    
+
     /**
      * Metodo para preguntar los valores de los datos miembro al
      * usuario. Por implementar, fuera del ambito de la clase
@@ -99,7 +101,7 @@ public:
  */
 void Punto::mostrar() const {
     // Formato de escritura del punto: (x,y)
-    ...................................................
+    cout << "(" << x << ", " << y << ")" << endl;
 }
 
 /**
@@ -107,8 +109,9 @@ void Punto::mostrar() const {
  * usuario. Por implementar
  */
 void Punto::leerDatos(){
-    // Se leen los datos del usaurio
-    ...................................................
+    // Se leen los datos del usuario
+    cout << "Introduzca coordenadas del punto (x, y): ";
+    cin >> x >> y;
 }
 
 /**
@@ -119,7 +122,11 @@ void Punto::leerDatos(){
  * @return la distancia entre el punto @a p1 y el punto @a p2
  */
 double calcularDistancia(Punto p1, Punto p2) {
-    ...................................................
+    double x = p2.x - p1.x;
+    double y = p2.y - p1.y;
+    double distancia = sqrt((x*x) + (y*y));
+
+    return distancia;
 }
 
 /**
@@ -132,7 +139,11 @@ double calcularDistancia(Punto p1, Punto p2) {
  * mínima a ambos
  */
 Punto calcularPuntoMedio(Punto p1, Punto p2) {
-    ...................................................
+    Punto p;
+    p.x = (p1.x + p2.x)/2;
+    p.y = (p1.y + p2.y)/2;
+
+    return p;
 }
 
 /**
@@ -144,21 +155,23 @@ private:
      * Centro del circulo
      */
     Punto centro;
-    
+
     /**
      * Radio del circulo
      */
     double radio;
 public:
-    
+
     /**
      * Constructor por defecto. Asigna 0 a todos los
      * datos miembro. Por implementar
      */
     Circulo() {
-        ...................................................
+        centro.x = 0;
+        centro.y = 0;
+        radio = 0;
     }
-    
+
     /**
      * Constructor que permite asignar valor a los datos
      * miembro del objeto. A implementar
@@ -166,56 +179,59 @@ public:
      * @param vradio
      */
     Circulo(Punto vcentro, double vradio) {
-        ...................................................
+        centro.x = vcentro.x;
+        centro.y = vcentro.y;
+        radio = vradio;
     }
-    
+
     /**
      * Metodo para acceder al valor del dato miembro centro.
      * A implementar
      * @return
      */
     Punto getCentro() const {
-        ...................................................
+        return centro;
     }
-    
+
     /**
      * Metodo para acceder al valor del dato miembro radio
      * A implementar
      * @return
      */
     double getRadio() const {
-        ...................................................
+        radio;
     }
-    
+
     /**
      * Metodo para asignar el valor del dato miembro centro. A
      * implementar
      * @param puntoCentro
      */
     void setCentro(Punto puntoCentro){
-        ...................................................
+        centro.x = puntoCentro.x;
+        centro.y = puntoCentro.y;
     }
-    
+
     /**
      * Metodo para asignar el valor del radio. A implementar
      * @param valorRadio
      */
     void setRadio(double valorRadio){
-        ...................................................
+        radio = valorRadio;
     }
-    
+
     /**
      * Metodo para mostrar por pantalla los datos de un objeto.
      * A implementar fuera del cuerpo de la clase
      */
     void mostrar() const;
-    
+
     /**
      * Metodo para preguntar los valores de los datos miembro al
      * usuario. Por implementar, fuera del ambito de la clase
      */
     void leerDatos();
-    
+
     /**
      * Metodo para calcular el area de un objeto. A implementar
      * fuera del cuerpo de la clase
@@ -229,17 +245,19 @@ public:
  */
 void Circulo::mostrar() const {
     // Formato de escritura del círculo: radio - (x,y)
-    ...................................................
+    cout << radio << " - (" << centro.x << "," << y << ")\n";
 }
 
 /**
  * Metodo para preguntar los valores de los datos miembro al
- * usuario. Por implementar (se recomienda leer el radio y 
+ * usuario. Por implementar (se recomienda leer el radio y
  * delegar en la clase Punto la lectura del punto que hace de
  * centro)
  */
 void Circulo::leerDatos(){
-    ...................................................
+    cout << "Introduzca el valor del radio:";
+    cin >> radio;
+    centro.leerDatos();
 }
 
 /**
@@ -249,7 +267,7 @@ void Circulo::leerDatos(){
 double Circulo::calcularArea() const {
     // Se calcula el area
     double area=2*M_PI*pow(radio,2);
-    
+
     // Se devuelve el resultado
     return area;
 }
@@ -268,10 +286,10 @@ double calcularDistancia(Circulo c1, Circulo c2) {
     // Se recuperan los centros de ambos circulos
     Punto cc1=c1.getCentro();
     Punto cc2=c2.getCentro();
-    
+
     // Se calcula la distancia entre los dos puntos
     double distancia=calcularDistancia(cc1, cc2);
-    
+
     // Se devuelve el valor calculado
     return distancia;
 }
@@ -286,20 +304,20 @@ double calcularDistancia(Circulo c1, Circulo c2) {
  */
 bool comprobarInterior(Punto p, Circulo c) {
     bool interior=false;
-    
+
     // Se calcula si la distancia entre el punto y el centro
     // del circulo es menor que el radio del circulo
     Punto cc=c.getCentro();
     double radio=c.getRadio();
-    
+
     // Se calcula la distancia
     double distancia=calcularDistancia(p, cc);
-    
+
     // Si es interior, se cambia el valor del flag
     if(distancia <= radio){
         interior=true;
     }
-    
+
     // Se devuelve el valor de interior
     return interior;
 }
@@ -310,22 +328,22 @@ bool comprobarInterior(Punto p, Circulo c) {
  */
 int main() {
     Circulo c1, c2;
-    
+
     do {
         // Se leen los datos del circulo 1
         c1.leerDatos();
-        
+
         // Igual con el circulo 2
         c2.leerDatos();
     } while (calcularDistancia(c1.getCentro(), c2.getCentro()) == 0);
-    
+
     // Se calcula la el punto medio de los dos centros
     Punto puntoMedio=calcularPuntoMedio(c1.getCentro(), c2.getCentro());
-    
+
     // Se crea objeto de la clase circulo a partir de los
     // datos
     Circulo c3(puntoMedio, calcularDistancia(c1.getCentro(), c2.getCentro()) / 2);
-    
+
     // Se muestra el resultado por pantalla
     cout << "El círculo que pasa por los dos centros es: ";
     c3.mostrar();
