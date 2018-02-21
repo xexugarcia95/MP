@@ -1,0 +1,30 @@
+==4522== Memcheck, a memory error detector
+==4522== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==4522== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==4522== Command: ./ejemplo3
+==4522== Parent PID: 1529
+==4522== 
+==4522== Invalid write of size 4
+==4522==    at 0x400743: main (ejemplo3.cpp:7)
+==4522==  Address 0x5a1a054 is 0 bytes after a block of size 20 alloc'd
+==4522==    at 0x4C2AFE7: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4522==    by 0x40071E: main (ejemplo3.cpp:5)
+==4522== 
+==4522== 
+==4522== HEAP SUMMARY:
+==4522==     in use at exit: 20 bytes in 1 blocks
+==4522==   total heap usage: 1 allocs, 0 frees, 20 bytes allocated
+==4522== 
+==4522== 20 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==4522==    at 0x4C2AFE7: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4522==    by 0x40071E: main (ejemplo3.cpp:5)
+==4522== 
+==4522== LEAK SUMMARY:
+==4522==    definitely lost: 20 bytes in 1 blocks
+==4522==    indirectly lost: 0 bytes in 0 blocks
+==4522==      possibly lost: 0 bytes in 0 blocks
+==4522==    still reachable: 0 bytes in 0 blocks
+==4522==         suppressed: 0 bytes in 0 blocks
+==4522== 
+==4522== For counts of detected and suppressed errors, rerun with: -v
+==4522== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 2 from 2)

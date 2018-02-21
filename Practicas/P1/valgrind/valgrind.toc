@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}\IeC {\textquestiondown }Qu\IeC {\'e} es?}{1}
+\contentsline {section}{\numberline {2}Chequeo de memoria: algunos problemas frecuentes}{2}
+\contentsline {subsection}{\numberline {2.1}Uso de memoria no inicializada}{2}
+\contentsline {subsection}{\numberline {2.2}Lectura y/o escritura en memoria liberada}{4}
+\contentsline {subsection}{\numberline {2.3}Sobrepasar los l\IeC {\'\i }mites de un array en operaci\IeC {\'o}n de lectura}{5}
+\contentsline {subsection}{\numberline {2.4}Sobrepasar los l\IeC {\'\i }mites de un array en operaci\IeC {\'o}n de escritura}{5}
+\contentsline {subsection}{\numberline {2.5}Problemas con delete sobre arrays}{7}
+\contentsline {section}{\numberline {3}An\IeC {\'a}lisis de rendimiento: callgrind}{8}
