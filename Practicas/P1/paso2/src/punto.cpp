@@ -17,7 +17,7 @@ void Punto::mostrar() const {
   * usuario. Por implementar
   */
 void Punto::leerDatos(){
-    // Se leen los datos del usaurio
+    // Se leen los datos del usuario
     cout << "Introduzca coordenadas del punto (x, y): ";
     cin >> x >> y;
 }
