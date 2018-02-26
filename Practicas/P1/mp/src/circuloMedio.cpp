@@ -122,8 +122,8 @@ void Punto::leerDatos(){
  * @return la distancia entre el punto @a p1 y el punto @a p2
  */
 double calcularDistancia(Punto p1, Punto p2) {
-    double x = p2.x - p1.x;
-    double y = p2.y - p1.y;
+    double x = p2.getX() - p1.getX();
+    double y = p2.getY() - p1.getY();
     double distancia = sqrt((x*x) + (y*y));
 
     return distancia;
@@ -140,8 +140,8 @@ double calcularDistancia(Punto p1, Punto p2) {
  */
 Punto calcularPuntoMedio(Punto p1, Punto p2) {
     Punto p;
-    p.x = (p1.x + p2.x)/2;
-    p.y = (p1.y + p2.y)/2;
+    p.setX((p1.getX() + p2.getX())/2);
+    p.setY((p1.getY() + p2.getY())/2);
 
     return p;
 }
@@ -167,8 +167,8 @@ public:
      * datos miembro. Por implementar
      */
     Circulo() {
-        centro.x = 0;
-        centro.y = 0;
+        centro.setX(0);
+        centro.setY(0);
         radio = 0;
     }
 
@@ -179,8 +179,8 @@ public:
      * @param vradio
      */
     Circulo(Punto vcentro, double vradio) {
-        centro.x = vcentro.x;
-        centro.y = vcentro.y;
+        centro.setX(vcentro.getX());
+        centro.setY(vcentro.getY());
         radio = vradio;
     }
 
@@ -208,8 +208,8 @@ public:
      * @param puntoCentro
      */
     void setCentro(Punto puntoCentro){
-        centro.x = puntoCentro.x;
-        centro.y = puntoCentro.y;
+        centro.setX(puntoCentro.getX());
+        centro.setY(puntoCentro.getY());
     }
 
     /**
@@ -245,7 +245,7 @@ public:
  */
 void Circulo::mostrar() const {
     // Formato de escritura del círculo: radio - (x,y)
-    cout << radio << " - (" << centro.x << "," << y << ")\n";
+    cout << radio << " - (" << centro.getX() << "," << centro.getY() << ")\n";
 }
 
 /**
