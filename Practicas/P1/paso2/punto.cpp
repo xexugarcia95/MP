@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "punto.h"
 
