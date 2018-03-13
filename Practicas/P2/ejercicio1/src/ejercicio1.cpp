@@ -6,7 +6,7 @@ using namespace std;
 
 /**
  * Funcion main para probar la funcionalidad
- * @return 
+ * @return
  */
 int main() {
     // Caso de prueba 1

@@ -8,46 +8,33 @@
    }
 
   int m = tam2;
-  for(int j=0;i<tam2;j++)
+  for(int j=0;j<tam2;j++)
   {
-    v3[m++] = v2[j];
+    v3[m] = v2[j];
+    m++;
   }
 
   int tam3 = tam1+tam2;
   ordenar(v3,tam3);
 
 
+  return tam3;
  }
 
  void ordenar(double v[],int tam)
  {
-   for(int i=0;i<tam;i++)
+  /* for(int i=0;i<tam-1;i++)
    {
      for(int j=i+1;j<tam;j++)
      {
-       if(v[j]<v[i])
+       if(v[i]>v[j])
        {
-         int aux = v[j];
-         for(int k=j;k>i;k--)
-         {
-           v[k]=v[k-1];
-         }
-         v[i]=aux;
+          int aux = v[i];
+          v[i] = v[j];
+          v[j] = aux;
        }
      }
-
-   }
-   //Buscar repetidos
-   for(int i=0;i< tam-1;i++)
-   {
-     if(v[i]==v[i+1])
-     {
-       for(int j=i+1;j<tam-1;j++)
-       {
-         v[j]=v[j+1];
-       }
-     }
-   }
+   }*/
  }
 
  void imprimirArray(double v[],int tam)
