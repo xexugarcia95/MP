@@ -1,4 +1,4 @@
-#Nombre:		makefile
+#Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
 #Descripcion:	Practica 1
 
