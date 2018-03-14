@@ -19,7 +19,7 @@ $(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
 $(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/utilidades.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
+$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/Valor.h
 	g++ -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
 
 $(LIB)/libformas.a: $(OBJ)/utilidades.o
