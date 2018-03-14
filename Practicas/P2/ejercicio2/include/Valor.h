@@ -1,4 +1,3 @@
-
 #ifndef VALOR_H
 #define VALOR_H
 
