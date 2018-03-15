@@ -9,37 +9,27 @@ void imprimirArray(int array[],int tam)
   cout << endl;
 }
 
-void obtenerMayorSecuenciaMonotonaCreciente(int array1[],int tam1,int array2[],int tam2)
+void obtenerMayorSecuenciaMonotonaCreciente(int array1[],int tam1,int array2[],int &tam2)
 {
-  int ini;
-  int fin;
+  int aux = 0;
+  int primero = 0;
   int tam = 0;
-  int aux;
-  bool menor;
   for(int i=0;i<tam1;i++)
   {
-    menor = false;
-    aux = 1;
-    ini = i;
-    fin = i;
-    for(int j=i+1;j<tam1 && !menor;j++)
+    aux++;
+    if(array1[i+1]<array1[i])
     {
-      if(array1[j]<array1[j-1])
+     if(aux> tam){
+      for(int j=primero,k=0;j<i+1;j++,k++)
       {
-        menor = true;
-      }else{
-        fin++;
-        aux++;
-      }
-    }
-    if(aux>tam)
-    {
-      for(int k=ini,z=0;k<fin;k++,z++)
-      {
-        array2[z] = array1[k];
+        array2[k] = array1[j];
       }
       tam = aux;
+     }
+      aux = 0;
+      primero = i+1;
     }
   }
+
   tam2 = tam;
 }

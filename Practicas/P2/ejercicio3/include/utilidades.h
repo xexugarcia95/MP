@@ -6,7 +6,7 @@
 using namespace std;
 
 void imprimirArray(int array[],int tam);
-void obtenerMayorSecuenciaMonotonaCreciente(int array1[],int tam1,int array2[],int tam2);
+void obtenerMayorSecuenciaMonotonaCreciente(int array1[],int tam1,int array2[],int &tam2);
 
 
 #endif
