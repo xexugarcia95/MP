@@ -5,5 +5,8 @@
 
 using namespace std;
 
+int localizarSubcadena(char cadena[],char subcadena[]);
 
-#endif;
+
+
+#endif
