@@ -1,6 +1,6 @@
 #Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
-#Descripcion:	Practica 1 Ejercicio5
+#Descripcion:	Practica 1 Ejercicio6
 
 
 BIN = bin
@@ -10,14 +10,14 @@ OBJ = obj
 LIB = lib
 DOC = doc
 
-all: $(BIN)/ejercicio5
+all: $(BIN)/ejercicio6
 
-$(BIN)/ejercicio5: $(OBJ)/ejercicio5.o $(LIB)/libformas.a
-	g++ -o $(BIN)/ejercicio5 $(OBJ)/ejercicio5.o -L$(LIB) -lformas
+$(BIN)/ejercicio6: $(OBJ)/ejercicio6.o $(LIB)/libformas.a
+	g++ -o $(BIN)/ejercicio6 $(OBJ)/ejercicio6.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio5.o: $(SRC)/ejercicio5.cpp $(INC)/utilidades.h
-	g++ -c -I$(INC) -o $(OBJ)/ejercicio5.o $(SRC)/ejercicio5.cpp
+$(OBJ)/ejercicio6.o: $(SRC)/ejercicio6.cpp $(INC)/utilidades.h
+	g++ -c -I$(INC) -o $(OBJ)/ejercicio6.o $(SRC)/ejercicio6.cpp
 
 $(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
 	g++ -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
@@ -35,7 +35,7 @@ clean:
 	rm $(LIB)/*.a
 
 mrproper: clean
-	rm $(BIN)/ejercicio5
+	rm $(BIN)/ejercicio6
 
 #_______DOCUMENTACION____
 
