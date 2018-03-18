@@ -16,14 +16,20 @@ bool insertarCadena(char cadena1[],char cadena2[],int posicion,char resultado[])
   {
     insercion = true;
     int tam2 = Longitud(cadena2);
-    for(int i=tam-1;i>=posicion;i--)
+    for(int i=0;i<posicion;i++)
     {
-      resultado[i+tam2] = cadena1[i];
+      resultado[i] = cadena1[i];
     }
-    for(int i=0;i<tam2;i++)
+    for(int j=posicion,m=0;m<tam2;j++,m++)
     {
-      resultado[i] = cadena2[i];
+      resultado[j] = cadena2[m];
     }
+    for(int k=posicion+tam2,l=posicion;k<tam+tam2;k++,l++)
+    {
+      resultado[k] = cadena1[l];
+    }
+
+    resultado[tam+tam2] = '\0';
   }
 
   return insercion;
