@@ -44,4 +44,3 @@ void EstimadorDistancia::devolverDistancias(double distanciasObtenidas[],
                                             int &util){
    .......................................
 }
-
