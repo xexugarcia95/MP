@@ -3,12 +3,19 @@
 
 void descomponer(int numero, int factores[],int &numeroFactores)
 {
-  int val = 2;
+  int val;
+  if(numeroFactores!=0)
+  {
+     val = factores[numeroFactores-1];
+  }else{
+    val = 2;
+  }
+
   if(numero>1)
   {
     if(numero%val!=0)
     {
-     while(numero%val!=0 && val<(numero/2))
+     while(numero%val!=0 )
      {
        val++;
      }
@@ -19,6 +26,7 @@ void descomponer(int numero, int factores[],int &numeroFactores)
     descomponer(numero/val,factores,numeroFactores);
 
   }
+  index(factores,numeroFactores,numero);
 }
 
 void mostrar(int factores[], int numeroFactores)
