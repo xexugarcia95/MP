@@ -31,7 +31,8 @@ void EstimadorDistancia::estimar(){
         x2=rand()/(double)RAND_MAX;
         y2=rand()/(double)RAND_MAX;
 
-        ...............................
+        estimacionMuestra = sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+        distancias[i] = estimacionMuestra;
     }
 }
 
@@ -42,5 +43,10 @@ void EstimadorDistancia::estimar(){
  */
 void EstimadorDistancia::devolverDistancias(double distanciasObtenidas[],
                                             int &util){
-   .......................................
+   util = muestras;
+   for(int i=0;i<util;i++)
+   {
+      distanciasObtenidas[i] = distancias[i];
+
+   }
 }

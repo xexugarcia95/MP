@@ -16,15 +16,15 @@ $(BIN)/ejercicio8: $(OBJ)/ejercicio8.o $(LIB)/libformas.a
 	g++ -o $(BIN)/ejercicio8 $(OBJ)/ejercicio8.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio8.o: $(SRC)/ejercicio8.cpp $(INC)/utilidades.h
+$(OBJ)/ejercicio8.o: $(SRC)/ejercicio8.cpp $(INC)/estimadorDistancia.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio8.o $(SRC)/ejercicio8.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
-	g++ -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
+$(OBJ)/estimadorDistancia.o: $(SRC)/estimadorDistancia.cpp $(INC)/estimadorDistancia.h
+	g++ -c -I$(INC) -o $(OBJ)/estimadorDistancia.o $(SRC)/estimadorDistancia.cpp
 
-$(LIB)/libformas.a: $(OBJ)/utilidades.o
+$(LIB)/libformas.a: $(OBJ)/estimadorDistancia.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/utilidades.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/estimadorDistancia.o
 
 
 #_______LIMPIEZA________
