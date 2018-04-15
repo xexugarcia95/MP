@@ -4,7 +4,7 @@
 
 void imprimir(int *secuencia, int util);
 void imprimir(int **secuencia, int util);
-
+void ordenar(int *vector,int util);
 void ordenarPunteros(int *array, int **parray, int util);
 
 #endif //EJERCICIO1_UTILIDADES_H
