@@ -1,6 +1,6 @@
 #include "utilidades.h"
 
-int combinarSuma(Valor array1[],int tam1,Valor array2[],int tam2,Valor resultado[])
+int combinarSuma(const Valor *array1,int tam1,const Valor *array2,int tam2,Valor *resultado)
 {
   int util = tam1 + tam2;
 
@@ -36,7 +36,7 @@ int combinarSuma(Valor array1[],int tam1,Valor array2[],int tam2,Valor resultado
 
 }
 
-void mostrarContenido(Valor array[],int tam)
+void mostrarContenido(const Valor *array,int tam)
 {
   for(int i=0;i<tam;i++)
   {
