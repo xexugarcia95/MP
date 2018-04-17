@@ -12,14 +12,14 @@ DOC = doc
 
 all: $(BIN)/ejercicio3
 
-$(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
-	g++ -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
+$(BIN)/ejercicio3: $(OBJ)/ejercicio3.o $(LIB)/libformas.a
+	g++ -o $(BIN)/ejercicio3 $(OBJ)/ejercicio3.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/utilidades.h
-	g++ -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+$(OBJ)/ejercicio3.o: $(SRC)/ejercicio3.cpp $(INC)/utilidades.h
+	g++ -c -I$(INC) -o $(OBJ)/ejercicio3.o $(SRC)/ejercicio3.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/Valor.h
+$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h 
 	g++ -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
 
 $(LIB)/libformas.a: $(OBJ)/utilidades.o
@@ -35,7 +35,7 @@ clean:
 	rm $(LIB)/*.a
 
 mrproper: clean
-	rm $(BIN)/ejercicio2
+	rm $(BIN)/ejercicio3
 
 #_______DOCUMENTACION____
 
