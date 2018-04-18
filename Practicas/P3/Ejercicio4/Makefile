@@ -16,15 +16,18 @@ $(BIN)/ejercicio4: $(OBJ)/ejercicio4.o $(LIB)/libformas.a
 	g++ -o $(BIN)/ejercicio4 $(OBJ)/ejercicio4.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio4.o: $(SRC)/ejercicio4.cpp $(INC)/utilidades.h
+$(OBJ)/ejercicio4.o: $(SRC)/ejercicio4.cpp $(INC)/Lista.h $(INC)/Celda.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio4.o $(SRC)/ejercicio4.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
-	g++ -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
+$(OBJ)/Lista.o: $(SRC)/Lista.cpp $(INC)/Lista.h $(INC)/Celda.h
+	g++ -c -I$(INC) -o $(OBJ)/Lista.o $(SRC)/Lista.cpp
 
-$(LIB)/libformas.a: $(OBJ)/utilidades.o
+$(OBJ)/Celda.o: $(SRC)/Celda.cpp $(INC)/Celda.h
+	g++ -c -I$(INC) -o $(OBJ)/Celda.o $(SRC)/Celda.cpp
+
+$(LIB)/libformas.a: $(OBJ)/Lista.o $(OBJ)/Celda.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/utilidades.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/Lista.o $(OBJ)/Celda.o
 
 
 #_______LIMPIEZA________

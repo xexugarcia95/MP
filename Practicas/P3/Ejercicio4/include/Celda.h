@@ -3,6 +3,9 @@
 #ifndef CELDA_H
 #define    CELDA_H
 
+#include <iostream>
+using namespace std;
+
 /**
  * Clase Celda para implementar una lista enlazada
  */
@@ -54,4 +57,3 @@ public:
 
 
 #endif	/* CELDA_H */
-
