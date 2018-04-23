@@ -6,7 +6,7 @@
 using namespace std;
 
 /*
- * 
+ *
  */
 int main(){
     double array[]= {1,2,3,4,5,6,7,8,9,10};
@@ -30,7 +30,7 @@ int main(){
         cout << "Problema: lista deberia tener longitud igual a 10" << endl;
     }
     cout << endl;
-    
+
     // Se eliminan tres elementos del final
     lista.eliminarFinal();
     lista.eliminarFinal();
@@ -91,7 +91,7 @@ int main(){
         cout << "Elemento en primera posicion es 0.0" << endl;
     }
     cout << endl;
-    
+
     // Se obtiene el ultimo elemento
     Celda *pCeldaUltima=lista.obtener(lista.obtenerLongitud()-1);
 
@@ -108,4 +108,3 @@ int main(){
     // Se eliminan todas las celda
     lista.liberarEspacio();
 }
-
