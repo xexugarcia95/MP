@@ -107,4 +107,5 @@ int main(){
 
     // Se eliminan todas las celda
     lista.liberarEspacio();
+
 }
