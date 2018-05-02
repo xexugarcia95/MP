@@ -16,11 +16,11 @@ $(BIN)/ejercicio5: $(OBJ)/ejercicio5.o $(LIB)/libformas.a
 	g++ -o $(BIN)/ejercicio5 $(OBJ)/ejercicio5.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio5.o: $(SRC)/ejercicio5.cpp $(INC)/Lista.h
+$(OBJ)/ejercicio5.o: $(SRC)/ejercicio5.cpp $(INC)/lista.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio5.o $(SRC)/ejercicio5.cpp
 
-$(OBJ)/Lista.o: $(SRC)/Lista.cpp $(INC)/Lista.h
-	g++ -c -I$(INC) -o $(OBJ)/Lista.o $(SRC)/Lista.cpp
+$(OBJ)/Lista.o: $(SRC)/lista.cpp $(INC)/lista.h
+	g++ -c -I$(INC) -o $(OBJ)/Lista.o $(SRC)/lista.cpp
 
 
 $(LIB)/libformas.a: $(OBJ)/Lista.o
