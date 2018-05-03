@@ -16,18 +16,17 @@ $(BIN)/ejercicio6: $(OBJ)/ejercicio6.o $(LIB)/libformas.a
 	g++ -o $(BIN)/ejercicio6 $(OBJ)/ejercicio6.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio6.o: $(SRC)/ejercicio6.cpp $(INC)/Lista.h $(INC)/Celda.h
+$(OBJ)/ejercicio6.o: $(SRC)/ejercicio6.cpp $(INC)/Matriz2D.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio6.o $(SRC)/ejercicio6.cpp
 
-$(OBJ)/Lista.o: $(SRC)/Lista.cpp $(INC)/Lista.h $(INC)/Celda.h
-	g++ -c -I$(INC) -o $(OBJ)/Lista.o $(SRC)/Lista.cpp
+$(OBJ)/Matriz2D.o: $(SRC)/Matriz2D.cpp $(INC)/Matriz2D.h
+	g++ -c -I$(INC) -o $(OBJ)/Matriz2D.o $(SRC)/Matriz2D.cpp
 
-$(OBJ)/Celda.o: $(SRC)/Celda.cpp $(INC)/Celda.h
-	g++ -c -I$(INC) -o $(OBJ)/Celda.o $(SRC)/Celda.cpp
 
-$(LIB)/libformas.a: $(OBJ)/Lista.o $(OBJ)/Celda.o
+
+$(LIB)/libformas.a: $(OBJ)/Matriz2D.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/Lista.o $(OBJ)/Celda.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/Matriz2D.o
 
 
 #_______LIMPIEZA________

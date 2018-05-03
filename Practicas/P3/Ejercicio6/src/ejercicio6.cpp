@@ -5,7 +5,7 @@
 using namespace std;
 
 /*
- * 
+ *
  */
 int main() {
     // Se crea un objeto de la clase Matriz2D con 5 filas y 5 columnas
@@ -31,6 +31,7 @@ int main() {
 
     // Se libera obj2
     delete obj2;
+    cout << "obj2 liberado\n";
 
     // Se usa obj2 para apuntar a la submatriz de fila2 a fila4
     // y columna 1 a columna3
@@ -55,4 +56,3 @@ int main() {
     obj1.eliminarColumna(1);
     obj1.mostrarPantalla();
 }
-
