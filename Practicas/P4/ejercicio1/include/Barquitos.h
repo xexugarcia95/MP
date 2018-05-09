@@ -12,13 +12,17 @@ int **tablero;
 
 public:
 
-Barquitos();
-
 Barquitos(int num_fil,int num_col);
 
 Barquitos(const Barquitos& b);
 
 ~Barquitos();
+
+Barquitos& operator=(const Barquitos& b);
+
+void mostrar();
+
+bool colocarBarco(int fil,int col,int tam,char x);
 
 };
 
