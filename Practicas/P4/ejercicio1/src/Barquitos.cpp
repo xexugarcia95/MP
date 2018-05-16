@@ -92,14 +92,65 @@ void Barquitos::mostrar()
     cout << endl;
   }
   cout << endl;
-  cout << NUM_FIL << " " << NUM_COL<< "\n";
 }
 
-bool Barquitos::colocarBarco(int fil,int col,int tam,char x)
+void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 {
-  bool colocar = true;
+  int izq_1,izq_2,der_1,der_2;
 
+  if(x=='H' || x=='h')
+  {
+    izq_1=fil-1;
+    izq_2=col-1;
+    der_1=fil+tam-1;
+    der_2=col+tam;
 
+    if(izq_1<0) izq_1++;
+    if(izq_2<0) izq_2++;
+    if(der_1>=tam) der_1++;
+    if(der_2>=tam) der_2++;
 
-  return colocar;
+    int val1 = der_1-izq_1+1;
+    int val2 = der_2-izq_2+1;
+    int **mat = new int*[val1];
+    for(int i=0;i<val1;i++)
+    {
+      mat[i] = new int[val2];
+    }
+
+    for(int i=0;i<val1;i++)
+    {
+      for(int j=0;j<val2;j++)
+      {
+        mat[i][j] = tablero[izq_1+i][izq_2+j];
+      }
+    }
+    bool encontrado = false;
+    for(int i=0;i<val1 && !encontrado;i++)
+    {
+      for(int j=0;j<val2 && !encontrado;j++)
+      {
+        if(mat[i][j] > 4 || mat[i][j] < 1) encontrado = true;
+      }
+    }
+
+    if(encontrado)
+    {
+      cout << "No se puede colocar en esta posicion\n";
+
+    }else
+    {
+      for(int i = fil,j=col;j<col+4;j++)
+        insercion(i,j,tam);
+    }
+
+    /*for(int i=0;i<val1;i++) delete [] mat[i];
+    delete [] mat;*/
+  }
+
+}
+
+void Barquitos::insercion(int i,int j,int valor)
+{
+  tablero[i][j] = valor;
 }

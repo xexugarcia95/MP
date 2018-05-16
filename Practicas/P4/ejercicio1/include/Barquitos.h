@@ -22,7 +22,9 @@ Barquitos& operator=(const Barquitos& b);
 
 void mostrar();
 
-bool colocarBarco(int fil,int col,int tam,char x);
+void colocarBarco(int fil,int col,int tam,char x);
+
+void insercion(int i,int j,int valor);
 
 };
 
