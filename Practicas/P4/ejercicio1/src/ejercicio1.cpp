@@ -23,7 +23,7 @@ int main()
   e->mostrar();
   cout << "Colocando barco\n";
   e->colocarBarco(2,3,4,'H');
-  //e->mostrar();
+  e->mostrar();
   delete b;
   delete d;
   delete c;

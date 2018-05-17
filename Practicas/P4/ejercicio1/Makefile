@@ -28,7 +28,6 @@ $(LIB)/libformas.a: $(OBJ)/Barquitos.o
 	@echo Construyendo libreria
 	ar rvs $(LIB)/libformas.a $(OBJ)/Barquitos.o
 
-
 #_______LIMPIEZA________
 
 clean:
@@ -43,3 +42,9 @@ mrproper: clean
 
 documentacion:
 	doxygen $(DOC)/doxys/Doxyfile
+
+#___________RUN_ONLY_WINDOWS_______
+
+run:
+	$(BIN)/ejercicio1
+	
