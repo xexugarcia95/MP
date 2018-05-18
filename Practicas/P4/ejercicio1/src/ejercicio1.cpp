@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-  cout << "\tBIENVENIDO AL JUEGO DE LOS BARQUITOS\n";
+  /*cout << "\tBIENVENIDO AL JUEGO DE LOS BARQUITOS\n";
   Barquitos *b = new Barquitos(11,11);
   cout << "Primer barco\n";
   b->mostrar();
@@ -17,19 +17,18 @@ int main()
   d->mostrar();
   d=c;
   cout << "Cuarto\n";
-  d->mostrar();
+  d->mostrar();*/
   Barquitos *e = new Barquitos(10,10);
   cout << "Barco para comprobar la insercion de barcos\n";
   e->mostrar();
   cout << "Colocando barco\n";
-  e->colocarBarco(2,3,4,'H');
+  e->colocarBarco(2,1,3,'H');
   e->mostrar();
 
-  delete b;
+  /*delete b;
   delete d;
-  delete c;
+  delete c;*/
   delete e;
-
 
 
   return 0;
