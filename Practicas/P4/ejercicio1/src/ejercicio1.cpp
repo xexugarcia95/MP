@@ -18,12 +18,12 @@ int main()
   d=c;
   cout << "Cuarto\n";
   d->mostrar();
-  Barquitos *e = new Barquitos(5,5);
+  Barquitos *e = new Barquitos(10,10);
   cout << "Barco para comprobar la insercion de barcos\n";
   e->mostrar();
   cout << "Colocando barco\n";
   e->colocarBarco(2,3,4,'H');
-  //e->mostrar();
+  e->mostrar();
 
   delete b;
   delete d;

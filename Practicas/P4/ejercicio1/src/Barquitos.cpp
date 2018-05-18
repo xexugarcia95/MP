@@ -126,7 +126,10 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
     {
       for(int j=0;j<val2 && !encontrado;j++)
       {
-        if(tablero[i][j] <= 4 && tablero[i][j] >= 1) encontrado = true;
+        if(tablero[i][j] > 0 && tablero[i][j] < 5)
+        {
+          encontrado = true;
+        }
       }
     }
     cout << "Comprobando si se ha encontrado\n";
@@ -136,13 +139,13 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 
     }else
     {
-    /*  for(int i = fil,j=col;j<col+4;j++)
+      cout << "Es posible. Realizando colocación...\n";
+      for(int i = fil,j=col;j<col+tam;j++)
       {
         insercion(i,j,tam);
-      }*/
+      }
       cout << "Inserción realizada\n";
     }
-
 
   }
 
@@ -150,6 +153,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 
 void Barquitos::insercion(int i,int j,int valor)
 {
-  cout << "Insertando " << valor << " en tablero\n";
+  cout << "Insertando " << valor << " en " << i << "," << j << "\n";
   tablero[i][j] = valor;
 }
