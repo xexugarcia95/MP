@@ -19,7 +19,7 @@ Barquitos::Barquitos(int num_fil,int num_col)
   {
     for(int j=0;j<NUM_COL;j++)
     {
-      tablero[i][j] = 0;
+      tablero[i][j] = 9;
     }
   }
 }
@@ -106,8 +106,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 {
   //Declaración de variables para su posterior uso
   int izq_1,izq_2,der_1,der_2;
-  int val1;
-  int val2;
   bool encontrado = false;
 
   if(x=='H' || x=='h') //comprueba si es horizontal
@@ -127,38 +125,42 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 
       if(izq_1<0) izq_1++;
       if(izq_2<0) izq_2++;
-      if(der_1>=tam) der_1--;
-      if(der_2>=tam) der_2--;
+      if(der_1>=NUM_FIL) der_1--;
+      if(der_2>=NUM_FIL) der_2--;
 
-      val1 = der_1-izq_1+1;
-      val2 = der_2-izq_2+1;
-
-      for(int i=0;i<val1 && !encontrado;i++)
+      if((izq_1<0 || izq_2<0) || (der_1>=NUM_FIL || der_2>=NUM_COL))
       {
-        for(int j=0;j<val2 && !encontrado;j++)
-        {
-          if(tablero[i][j] >= 1 && tablero[i][j] <= 4)
-          {
-            encontrado = true;
-          }
-        }
-      }
-      cout << "Comprobando si se ha encontrado\n";
-      if(encontrado)
-      {
-        cout << "No se puede colocar en esta posicion\n";
-
+        cout << "No se puede realizar la inserción, se sale fuera del tablero\n";
+        cout << izq_1 << "," << izq_2 << "," << der_1 << "," << der_2 << endl;
       }else
       {
-        cout << "Es posible. Realizando colocación...\n";
-        for(int i = fil,j=col;j<(col+tam);j++)
+        for(int i=izq_1;i<der_1 && !encontrado;i++)
         {
-          insercion(i,j,tam);
+          for(int j=izq_2;j<der_2 && !encontrado;j++)
+          {
+            if(tablero[i][j] >= 1 && tablero[i][j] <= 4)
+            {
+              encontrado = true;
+            }
+          }
         }
-        cout << "Inserción realizada\n";
-      }
-    }
+        cout << "Comprobando si se ha encontrado\n";
+        if(encontrado)
+        {
+          cout << "No se puede colocar en esta posicion\n";
 
+        }else
+        {
+          cout << "Es posible. Realizando colocación...\n";
+          for(int i = fil,j=col;j<(col+tam);j++)
+          {
+            insercion(i,j,tam);
+          }
+          cout << "Inserción realizada\n";
+        }
+      }
+
+    }
 
   }else if(x=='V' || x=='v')
   {
@@ -177,36 +179,44 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 
         if(izq_1<0) izq_1++;
         if(izq_2<0) izq_2++;
-        if(der_1>=tam) der_1++;
-        if(der_2>=tam) der_2++;
+        if(der_1>=NUM_FIL) der_1--;
+        if(der_2>=NUM_COL) der_2--;
 
-        val1 = der_1-izq_1+1;
-        val2 = der_2-izq_2+1;
-
-        for(int i=izq_1;i<der_1 && !encontrado;i++)
+        if((izq_1<0 || izq_2<0) || (der_1>=NUM_FIL || der_2>=NUM_COL))
         {
-          for(int j=izq_2;j<der_2 && !encontrado;j++)
+          cerr << "No se puede realizar la inserción, se sale fuera del tablero\n";
+          cout << izq_1 << "," << izq_2 << "," << der_1<< "," << der_2 << endl;
+        }
+        else
+        {
+          for(int i=izq_1;i<=der_1 && !encontrado;i++)
           {
-            if(tablero[i][j] >= 1 && tablero[i][j] <= 5)
+            for(int j=izq_2;j<=der_2 && !encontrado;j++)
             {
-              encontrado = true;
+              if(tablero[i][j] >= 1 && tablero[i][j] <= 5)
+              {
+                encontrado = true;
+              }
             }
           }
-        }
-        cout << "Comprobando si se ha encontrado\n";
-        if(encontrado)
-        {
-          cout << "No se puede colocar en esta posicion\n";
-
-        }else
-        {
-          cout << "Es posible. Realizando colocación...\n";
-          for(int i = fil,j=col;i<(fil+tam);i++)
+          cout << "Comprobando si se ha encontrado\n";
+          if(encontrado)
           {
-            insercion(i,j,tam);
+            cout << "No se puede colocar en esta posicion\n";
+
+          }else
+          {
+            cout << "Es posible. Realizando colocación...\n";
+            for(int i = fil,j=col;i<(fil+tam);i++)
+            {
+              insercion(i,j,tam);
+            }
+            cout << "Inserción realizada\n";
+            cout << izq_1 << "," << izq_2 << "," << der_1<< "," << der_2 << endl;
           }
-          cout << "Inserción realizada\n";
-      }
+        }
+
+
     }
 
   }else

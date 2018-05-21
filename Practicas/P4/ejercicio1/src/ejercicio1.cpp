@@ -24,6 +24,10 @@ int main()
   cout << "Colocando barco\n";
   e->colocarBarco(7,2,5,'H');
   e->colocarBarco(3,3,3,'v');
+  e->colocarBarco(2,9,4,'v');
+  e->colocarBarco(0,3,2,'h');
+  e->colocarBarco(0,9,2,'h');
+  e->colocarBarco(0,9,2,'v');
   e->mostrar();
 
   /*delete b;
