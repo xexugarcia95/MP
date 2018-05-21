@@ -204,7 +204,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
               insercion(i,j,tam);
             }
             cout << "Inserción realizada\n";
-            cout << izq_1 << "," << izq_2 << "," << der_1<< "," << der_2 << endl;
           }
         }
 
