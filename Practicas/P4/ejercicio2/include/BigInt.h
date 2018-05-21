@@ -1,5 +1,5 @@
-#ifndef _BIGINT__
-#define _BIGINT__
+#ifndef _BIGINT_H__
+#define _BIGINT_H__
 
 #include <iostream>
 using namespace std;
