@@ -169,13 +169,50 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
       cout << "Tam: " << tam << ", Fil: " << NUM_FIL << endl;
     }else
       {
+        cout << "El tamaño del barco es <,=; Se pasa a la siguiente sección\n";
+        izq_1=fil-1;
+        izq_2=fil+tam;
+        der_1=col;
+        der_2=col+tam;
 
+        if(izq_1<0) izq_1++;
+        if(izq_2<0) izq_2++;
+        if(der_1>=tam) der_1++;
+        if(der_2>=tam) der_2++;
+
+        val1 = der_1-izq_1+1;
+        val2 = der_2-izq_2+1;
+
+        for(int i=0;i<val1 && !encontrado;i++)
+        {
+          for(int j=0;j<val2 && !encontrado;j++)
+          {
+            if(tablero[i][j] >= 1 && tablero[i][j] <= 4)
+            {
+              encontrado = true;
+            }
+          }
+        }
+        cout << "Comprobando si se ha encontrado\n";
+        if(encontrado)
+        {
+          cout << "No se puede colocar en esta posicion\n";
+
+        }else
+        {
+          cout << "Es posible. Realizando colocación...\n";
+          for(int i = fil,j=col;j<(col+tam);j++)
+          {
+            insercion(i,j,tam);
+          }
+          cout << "Inserción realizada\n";
       }
+    }
+
   }else
   {
     cerr << "Error, el tipo carácter no coincide (H,V)\n";
   }
-
 }
 
 void Barquitos::insercion(int i,int j,int valor)
