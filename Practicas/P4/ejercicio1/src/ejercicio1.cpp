@@ -22,7 +22,8 @@ int main()
   cout << "Barco para comprobar la insercion de barcos\n";
   e->mostrar();
   cout << "Colocando barco\n";
-  e->colocarBarco(2,1,3,'H');
+  e->colocarBarco(7,2,5,'H');
+  e->colocarBarco(3,3,3,'v');
   e->mostrar();
 
   /*delete b;

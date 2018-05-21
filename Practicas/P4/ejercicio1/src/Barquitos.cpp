@@ -122,13 +122,13 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
       cout << "El tamaño del barco es <,=; Se pasa a la siguiente sección\n";
       izq_1=fil-1;
       izq_2=col-1;
-      der_1=fil+tam-1;
+      der_1=fil+1;
       der_2=col+tam;
 
       if(izq_1<0) izq_1++;
       if(izq_2<0) izq_2++;
-      if(der_1>=tam) der_1++;
-      if(der_2>=tam) der_2++;
+      if(der_1>=tam) der_1--;
+      if(der_2>=tam) der_2--;
 
       val1 = der_1-izq_1+1;
       val2 = der_2-izq_2+1;
@@ -171,9 +171,9 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
       {
         cout << "El tamaño del barco es <,=; Se pasa a la siguiente sección\n";
         izq_1=fil-1;
-        izq_2=fil+tam;
-        der_1=col;
-        der_2=col+tam;
+        izq_2=col-1;
+        der_1=fil+tam;
+        der_2=col+1;
 
         if(izq_1<0) izq_1++;
         if(izq_2<0) izq_2++;
@@ -183,11 +183,11 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
         val1 = der_1-izq_1+1;
         val2 = der_2-izq_2+1;
 
-        for(int i=0;i<val1 && !encontrado;i++)
+        for(int i=izq_1;i<der_1 && !encontrado;i++)
         {
-          for(int j=0;j<val2 && !encontrado;j++)
+          for(int j=izq_2;j<der_2 && !encontrado;j++)
           {
-            if(tablero[i][j] >= 1 && tablero[i][j] <= 4)
+            if(tablero[i][j] >= 1 && tablero[i][j] <= 5)
             {
               encontrado = true;
             }
@@ -201,7 +201,7 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
         }else
         {
           cout << "Es posible. Realizando colocación...\n";
-          for(int i = fil,j=col;j<(col+tam);j++)
+          for(int i = fil,j=col;i<(fil+tam);i++)
           {
             insercion(i,j,tam);
           }
