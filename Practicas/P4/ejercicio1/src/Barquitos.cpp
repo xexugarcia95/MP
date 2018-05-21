@@ -114,10 +114,8 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
     if(tam>NUM_COL) //comprueba que no supere el rango de la columna de la matriz
     {
       cout << "El tamaño del barco supera el rango de la matriz.No es posible su inserción\n";
-      cout << "Tam: " << tam << ", Col: " << NUM_COL << endl;
     }else
     {
-      cout << "El tamaño del barco es <,=; Se pasa a la siguiente sección\n";
       izq_1=fil-1;
       izq_2=col-1;
       der_1=fil+1;
@@ -131,7 +129,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
       if((izq_1<0 || izq_2<0) || (der_1>=NUM_FIL || der_2>=NUM_COL))
       {
         cout << "No se puede realizar la inserción, se sale fuera del tablero\n";
-        cout << izq_1 << "," << izq_2 << "," << der_1 << "," << der_2 << endl;
       }else
       {
         for(int i=izq_1;i<der_1 && !encontrado;i++)
@@ -144,7 +141,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
             }
           }
         }
-        cout << "Comprobando si se ha encontrado\n";
         if(encontrado)
         {
           cout << "No se puede colocar en esta posicion\n";
@@ -168,10 +164,8 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
     if(tam>NUM_FIL) //comprueba que no supere el rango de la columna de la matriz
     {
       cout << "El tamaño del barco supera el rango de la matriz.No es posible su inserción\n";
-      cout << "Tam: " << tam << ", Fil: " << NUM_FIL << endl;
     }else
       {
-        cout << "El tamaño del barco es <,=; Se pasa a la siguiente sección\n";
         izq_1=fil-1;
         izq_2=col-1;
         der_1=fil+tam;
@@ -185,7 +179,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
         if((izq_1<0 || izq_2<0) || (der_1>=NUM_FIL || der_2>=NUM_COL))
         {
           cerr << "No se puede realizar la inserción, se sale fuera del tablero\n";
-          cout << izq_1 << "," << izq_2 << "," << der_1<< "," << der_2 << endl;
         }
         else
         {
@@ -199,7 +192,6 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
               }
             }
           }
-          cout << "Comprobando si se ha encontrado\n";
           if(encontrado)
           {
             cout << "No se puede colocar en esta posicion\n";
@@ -227,6 +219,10 @@ void Barquitos::colocarBarco(int fil,int col,int tam,char x)
 
 void Barquitos::insercion(int i,int j,int valor)
 {
-  cout << "Insertando " << valor << " en " << i << "," << j << "\n";
   tablero[i][j] = valor;
+}
+
+int Barquitos::indice(int x,int y)
+{
+  return tablero[x][y];
 }

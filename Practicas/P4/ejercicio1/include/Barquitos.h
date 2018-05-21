@@ -26,6 +26,8 @@ void colocarBarco(int fil,int col,int tam,char x);
 
 void insercion(int i,int j,int valor);
 
+int indice(int x,int y);
+
 };
 
 

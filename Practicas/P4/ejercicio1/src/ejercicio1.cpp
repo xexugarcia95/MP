@@ -5,19 +5,8 @@ using namespace std;
 
 int main()
 {
-  /*cout << "\tBIENVENIDO AL JUEGO DE LOS BARQUITOS\n";
-  Barquitos *b = new Barquitos(11,11);
-  cout << "Primer barco\n";
-  b->mostrar();
-  Barquitos *c = new Barquitos(*b);
-  cout << "Segundo barco\n";
-  c->mostrar();
-  Barquitos *d = new Barquitos(5,5);
-  cout << "Tercer\n";
-  d->mostrar();
-  d=c;
-  cout << "Cuarto\n";
-  d->mostrar();*/
+  cout << "\tBIENVENIDO AL JUEGO DE LOS BARQUITOS\n";
+  cout << "\t-----------------------------------------\n";
   Barquitos *e = new Barquitos(10,10);
   cout << "Barco para comprobar la insercion de barcos\n";
   e->mostrar();
@@ -28,11 +17,21 @@ int main()
   e->colocarBarco(0,3,2,'h');
   e->colocarBarco(0,9,2,'h');
   e->colocarBarco(0,9,2,'v');
+  e->colocarBarco(9,9,2,'h');
+  e->colocarBarco(9,9,1,'h');
+  e->colocarBarco(0,0,2,'D');
   e->mostrar();
 
-  /*delete b;
-  delete d;
-  delete c;*/
+  int x,y;
+  cout << "Elige donde quieres disparar:";
+  cin >> x >> y;
+
+  if(e->indice(x,y)==9)
+  {
+    cout << "AGUA!!\n";
+    e->insercion(x,y,-9);
+  }
+  e->mostrar();
   delete e;
 
 
