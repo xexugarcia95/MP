@@ -16,17 +16,17 @@ $(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
 	g++ -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/Barquitos.h
+$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h
 	g++ -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
 
-$(OBJ)/Barquitos.o: $(SRC)/Barquitos.cpp $(INC)/Barquitos.h
-	g++ -c -I$(INC) -o $(OBJ)/Barquitos.o $(SRC)/Barquitos.cpp
+$(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
+	g++ -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
 
 
 
-$(LIB)/libformas.a: $(OBJ)/Barquitos.o
+$(LIB)/libformas.a: $(OBJ)/BigInt.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/Barquitos.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o
 
 #_______LIMPIEZA________
 
