@@ -90,21 +90,21 @@ void BigInt::insertar(int valor)
   entero[0] = valor;
 }
 
-BigInt& BigInt::operator=(const BigInt& b)
+/*BigInt& BigInt::operator=(const BigInt& b)
 {
   if(this!=&b)
   {
-    delete [] this->entero;
+    delete [] entero;
     TAM = b.TAM;
     util = b.util;
-    this->entero = new int[TAM];
+    entero = new int[TAM];
     for(int i=0;i<util;i++)
     {
-      this->entero[i] = b.entero[i];
+      entero[i] = b.entero[i];
     }
   }
   return *this;
-}
+}*/
 
 void BigInt::mostrar(int i)
 {
