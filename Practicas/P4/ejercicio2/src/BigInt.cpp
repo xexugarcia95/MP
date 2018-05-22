@@ -1,6 +1,8 @@
 #include "BigInt.h"
 #include <string.h>
 
+using namespace std;
+
 BigInt::BigInt()
 {
   TAM = 1;
@@ -10,22 +12,32 @@ BigInt::BigInt()
 
 BigInt::BigInt(int valor)
 {
+  TAM=8;
+  util=0;
+  entero = new int[TAM];
+
+
   string x = std::to_string(valor);
   int tam=0;
-  for(int i=0;x[i]!='\0';i++) tam++;
+  for(int i=0;x[i]!='\0';i++)
+  {
+    tam++;
+  }
+
   while(TAM<=tam)
   {
     resize();
   }
 
   util = tam;
-  for(int i=util,j=0;i<=0;i--,j++)
-  {
-    entero[i] = x[j];
-  }
+  for(int i=0;i<util;i++) entero[i] = 0;
 
-  cout << entero[0] << " ";
-  cout << x[0] << " ";
+  for(int i=util-1,j=0;i>=0;i--,j++)
+  {
+    char s = x[j];
+    int e = s - '0';
+    entero[i] = e;
+  }
 
   cout << endl;
 
@@ -52,19 +64,23 @@ BigInt::~BigInt()
 
 void BigInt::resize()
 {
-    if(TAM==0) TAM++;
     int va = TAM*2;
     int *v = new int[va];
 
-    if(entero = 0) entero = new int[TAM];
-    for(int i=0;i<util;i++)
+    if(entero == 0) entero = new int[TAM];
+    else
     {
-      v[i] = entero[i];
-    }
-    TAM = va;
-    delete [] entero;
+      for(int i=0;i<util;i++)
+      {
+        v[i] = entero[i];
+      }
+      TAM = va;
+      delete [] entero;
 
-    entero = v;
+      entero = new int[TAM];
+      for(int i=0;i<util;i++) entero[i] = v[i];
+    }
+
 }
 
 BigInt* BigInt::sumaBig(BigInt *b1,BigInt *b2)
@@ -82,15 +98,15 @@ void BigInt::insertar(int valor)
 {
   if(util==TAM-1) resize();
 
-  for(int i=util;i>0;i--)
+  for(int i=util;i>=0;i--)
   {
     entero[i+1] = entero[i];
   }
-  util++;
   entero[0] = valor;
+  util++;
 }
 
-/*BigInt& BigInt::operator=(const BigInt& b)
+BigInt& BigInt::operator=(const BigInt& b)
 {
   if(this!=&b)
   {
@@ -104,9 +120,4 @@ void BigInt::insertar(int valor)
     }
   }
   return *this;
-}*/
-
-void BigInt::mostrar(int i)
-{
-    cout << entero[i] << endl;
 }

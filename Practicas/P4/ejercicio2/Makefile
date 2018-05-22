@@ -13,14 +13,14 @@ DOC = doc
 all: $(BIN)/ejercicio2
 
 $(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
-	g++ -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
+	g++ -std=c++11 -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
 $(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h
-	g++ -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
 
 $(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
-	g++ -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
 
 
 
