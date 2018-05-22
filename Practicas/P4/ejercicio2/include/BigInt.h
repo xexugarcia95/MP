@@ -1,16 +1,17 @@
 #ifndef _BIGINT_H__
 #define _BIGINT_H__
-#include <string>
 #include <iostream>
+
 using namespace std;
 
 
 class BigInt
 {
 private:
-
+  int TAM;
+  int util;
   int *entero;
-  int elementoMaximo;
+
 
 public:
 
@@ -19,15 +20,19 @@ BigInt(int valor);
 BigInt(const BigInt& b);
 ~BigInt();
 
-int* sumaBig(int *b1,int *b2);
+void resize();
+BigInt* sumaBig(BigInt *b1,BigInt *b2);
+void insertar(int valor);
+BigInt& operator=(const BigInt& b);
+void mostrar(int i);
 
 friend ostream& operator<<(ostream& os,const BigInt& b);
 
 };
 
-ostream& operator<<(ostream& os,const BigInt& b)
+inline ostream& operator<<(ostream& os,const BigInt& b)
 {
-  for(int i=b.elementoMaximo-1;i>=0;i--) os << b.entero[i];
+  for(int i=b.util-1;i>=0;i--) os << b.entero[i];
   os << endl;
   return os;
 }
