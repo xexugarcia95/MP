@@ -6,9 +6,10 @@ using namespace std;
 
 class Punto
 {
+private:
   int x;
   int y;
-
+public:
   Punto();
   Punto(int i,int j);
   Punto(const Punto& p);

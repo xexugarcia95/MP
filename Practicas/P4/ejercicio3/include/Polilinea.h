@@ -14,12 +14,13 @@ private:
 public:
 
   Polilinea();
-  Polilinea(const Punto &p);
-  Polilinea(const Polilinea &p);
+  Polilinea(const Punto &pu);
+  Polilinea(const Polilinea &po);
   ~Polilinea();
 
-  void agregarPunto(Punto *p);
-  //Polilinea operator+(const Polilinea& a,const Polilinea& b);
+  void resize();
+  void agregarPunto(const Punto& pu);
+  Polilinea& operator+(const Polilinea& b);
 
   friend ostream& operator<<(ostream& os,const Polilinea& p);
 
@@ -27,7 +28,12 @@ public:
 
 inline ostream& operator<<(ostream& os,const Polilinea& p)
 {
-  os << "Puntos: " << p.p << endl;
+  os << "Puntos:\n";
+  for(int i=0;i<p.num;i++)
+  {
+    cout << p.p[i] << endl;
+  }
+
   os << "nº puntos: " << p.num << endl;
 
   return os;
