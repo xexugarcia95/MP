@@ -1,6 +1,6 @@
 #Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
-#Descripcion:	Practica 4 ejercicio 2
+#Descripcion:	Practica 4 ejercicio 3
 
 
 BIN = bin
@@ -10,26 +10,24 @@ OBJ = obj
 LIB = lib
 DOC = doc
 
-all: $(BIN)/ejercicio2
+all: $(BIN)/ejercicio3
 
-$(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
-	g++ -std=c++11 -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
+$(BIN)/ejercicio3: $(OBJ)/ejercicio3.o $(LIB)/libformas.a
+	g++ -std=c++11 -o $(BIN)/ejercicio3 $(OBJ)/ejercicio3.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h $(INC)/utilidades.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+$(OBJ)/ejercicio3.o: $(SRC)/ejercicio3.cpp $(INC)/Polilinea.h $(INC)/Punto.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio3.o $(SRC)/ejercicio3.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
+$(OBJ)/Polilinea.o: $(SRC)/Polilinea.cpp $(INC)/Polilinea.h $(INC)/Punto.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Polilinea.o $(SRC)/Polilinea.cpp
 
-$(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
+$(OBJ)/Punto.o: $(SRC)/Punto.cpp $(INC)/Punto.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Punto.o $(SRC)/Punto.cpp
 
-
-
-$(LIB)/libformas.a: $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+$(LIB)/libformas.a: $(OBJ)/Polilinea.o $(OBJ)/Punto.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/Polilinea.o $(OBJ)/Punto.o
 
 #_______LIMPIEZA________
 
@@ -39,7 +37,7 @@ clean:
 	rm $(LIB)/*.a
 
 mrproper: clean
-	rm $(BIN)/ejercicio2
+	rm $(BIN)/ejercicio3
 
 #_______DOCUMENTACION____
 
@@ -49,4 +47,4 @@ documentacion:
 #___________RUN_ONLY_WINDOWS_______
 
 run:
-	$(BIN)/ejercicio2
+	$(BIN)/ejercicio3
