@@ -26,15 +26,21 @@ int main()
   c->insertar(8);
   c->insertar(3);
   c->insertar(5);
+  cout << "(9530273759835)\n";
+  cout << "Big Int 2: " << *c << endl;
 
-  cout << "Big Int 2 (9530273759835): " << *c << endl;
-
-  cout << "SUMA\n--------------\n";
+  cout << "SUMA\n";
   BigInt *d=new BigInt;
 
-//  d = sumaBig(b,c);
+  d = sumaBig(b,c);
 
-  //cout << "Big Int 3 (b+c): " << *d << endl;
+  cout << "Big Int 3 (b+c): " << *d << endl;
+
+  BigInt *e = new BigInt(*d);
+
+  cout << "Big Int 4: " << *e << endl;
+
+  delete e;
   delete d;
   delete b;
   delete c;

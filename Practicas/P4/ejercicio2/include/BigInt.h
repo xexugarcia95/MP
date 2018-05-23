@@ -23,7 +23,9 @@ BigInt(const BigInt& b);
 void resize();
 void insertar(int valor);
 int getUtil();
+int getTam();
 void insercion(int i,int valor);
+void setUtil(int i);
 int indice(int i);
 BigInt& operator=(const BigInt& b);
 

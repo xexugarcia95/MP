@@ -67,7 +67,11 @@ void BigInt::resize()
     int va = TAM*2;
     int *v = new int[va];
 
-    if(entero == 0) entero = new int[TAM];
+    if(entero == 0)
+    {
+      entero = new int[va];
+      TAM = va;
+    }
     else
     {
       for(int i=0;i<util;i++)
@@ -100,9 +104,20 @@ int BigInt::getUtil()
   return util;
 }
 
+int BigInt::getTam()
+{
+  return TAM;
+}
+
 void BigInt::insercion(int i,int valor)
 {
   entero[i] = valor;
+  if(i==this->util+1)this->util++;
+}
+
+void BigInt::setUtil(int i)
+{
+  if(i<TAM) this->util = i;
 }
 
 int BigInt::indice(int i)
