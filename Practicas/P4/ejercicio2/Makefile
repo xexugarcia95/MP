@@ -16,17 +16,20 @@ $(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
 	g++ -std=c++11 -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h
+$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h $(INC)/utilidades.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+
+$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/BigInt.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
 
 $(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
 
 
 
-$(LIB)/libformas.a: $(OBJ)/BigInt.o
+$(LIB)/libformas.a: $(OBJ)/BigInt.o $(OBJ)/utilidades.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o $(OBJ)/utilidades.o
 
 #_______LIMPIEZA________
 
