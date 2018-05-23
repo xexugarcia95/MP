@@ -1,6 +1,6 @@
 #include <iostream>
 #include "BigInt.h"
-
+#include "utilidades.h"
 
 int main()
 {
@@ -30,12 +30,14 @@ int main()
   cout << "Big Int 2 (9530273759835): " << *c << endl;
 
   cout << "SUMA\n--------------\n";
-  BigInt *d =new BigInt(*b->sumaBig(b,c));
+  BigInt *d=new BigInt;
 
-  cout << "Big Int 3 (b+c): " << *d << endl;
+//  d = sumaBig(b,c);
 
+  //cout << "Big Int 3 (b+c): " << *d << endl;
+  delete d;
   delete b;
   delete c;
-  delete d;
+
 
 }

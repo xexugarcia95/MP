@@ -21,8 +21,10 @@ BigInt(const BigInt& b);
 ~BigInt();
 
 void resize();
-BigInt* sumaBig(BigInt *b1,BigInt *b2);
 void insertar(int valor);
+int getUtil();
+void insercion(int i,int valor);
+int indice(int i);
 BigInt& operator=(const BigInt& b);
 
 friend ostream& operator<<(ostream& os,const BigInt& b);

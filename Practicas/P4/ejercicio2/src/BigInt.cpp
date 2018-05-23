@@ -83,17 +83,6 @@ void BigInt::resize()
 
 }
 
-BigInt* BigInt::sumaBig(BigInt *b1,BigInt *b2)
-{
-  int val = (b1->util>b2->util) ? b1->util : b2->util;
-  BigInt *v = new BigInt(val);
-  for(int i=0;i<val;i++)
-  {
-    v->entero[i] = b1->entero[i] + b2->entero[i];
-  }
-  return v;
-}
-
 void BigInt::insertar(int valor)
 {
   if(util==TAM-1) resize();
@@ -104,6 +93,21 @@ void BigInt::insertar(int valor)
   }
   entero[0] = valor;
   util++;
+}
+
+int BigInt::getUtil()
+{
+  return util;
+}
+
+void BigInt::insercion(int i,int valor)
+{
+  entero[i] = valor;
+}
+
+int BigInt::indice(int i)
+{
+  return entero[i];
 }
 
 BigInt& BigInt::operator=(const BigInt& b)
