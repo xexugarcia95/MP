@@ -16,7 +16,7 @@ int main()
   Punto *p3 = new Punto(8,8);
   Polilinea *po2 = new Polilinea(*p3);
   Polilinea *po3;
-  *po3 = *po + *po2;
+  po3 = *po + *po2;
   cout << "Polilinea 2\n";
   cout << *po3 << endl;
 

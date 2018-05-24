@@ -67,9 +67,16 @@ void Polilinea::agregarPunto(const Punto& pu)
   num++;
 }
 
-Polilinea& Polilinea::operator+=(const Polilinea& b)
+/*Polilinea& Polilinea::operator+=(const Polilinea& b)
 {
   for(int i=0;i<b.num;i++) this->agregarPunto(b.p[i]);
 
   return *this;
+}*/
+
+Polilinea* Polilinea::operator+(const Polilinea& po)
+{
+  for(int i=0;i<po.num;i++) this->agregarPunto(po.p[i]);
+
+  return this;
 }
