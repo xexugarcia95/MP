@@ -10,7 +10,18 @@ private:
   Celda * contenido;
 public:
 
+  Lista();
+  Lista(const Celda& c);
+  Lista(const Lista& l);
+  ~Lista();
+
+  friend ostream& operator<<(ostream& os,const Lista& l);
+
 };
 
+inline ostream& operator<<(ostream& os,const Lista& l)
+{
+  //--------ESCRIBIR CODIGO---------
+}
 
 #endif
