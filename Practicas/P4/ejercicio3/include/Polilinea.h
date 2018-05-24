@@ -20,11 +20,18 @@ public:
 
   void resize();
   void agregarPunto(const Punto& pu);
-  Polilinea& operator+(const Polilinea& b);
 
+  Polilinea& operator+=(const Polilinea& po);
+  friend Polilinea operator+(Polilinea p,const Polilinea& b);
   friend ostream& operator<<(ostream& os,const Polilinea& p);
 
 };
+
+inline Polilinea operator+(Polilinea p,const Polilinea& b)
+{
+  p+=b;
+  return p;
+}
 
 inline ostream& operator<<(ostream& os,const Polilinea& p)
 {
