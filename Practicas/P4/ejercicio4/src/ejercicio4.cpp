@@ -10,5 +10,12 @@ int main()
 
   cout << *c << endl;
 
+  Celda *d = new Celda(*c);
+
+  cout << *d << endl;
+
+  Lista *l = new Lista(*c);
+
+  cout << *l << endl;
   return 0;
 }

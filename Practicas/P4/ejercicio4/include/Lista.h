@@ -21,7 +21,19 @@ public:
 
 inline ostream& operator<<(ostream& os,const Lista& l)
 {
-  //--------ESCRIBIR CODIGO---------
+  Celda *li;
+  li = l.contenido;
+
+  os << "Celda inicial:\n";
+  os << *li << endl;
+  li = li->getCelda();
+  while(li!=0)
+  {
+    os << *li << " ";
+    li = li->getCelda();
+  }
+
+  return os;
 }
 
 #endif
