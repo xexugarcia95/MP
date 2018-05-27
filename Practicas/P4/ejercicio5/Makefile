@@ -1,6 +1,6 @@
 #Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
-#Descripcion:	Practica 4 ejercicio 2
+#Descripcion:	Practica 4 ejercicio 5
 
 
 BIN = bin
@@ -10,26 +10,25 @@ OBJ = obj
 LIB = lib
 DOC = doc
 
-all: $(BIN)/ejercicio2
+all: $(BIN)/ejercicio5
 
-$(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
-	g++ -std=c++11 -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
+$(BIN)/ejercicio5: $(OBJ)/ejercicio5.o $(LIB)/libformas.a
+	g++ -std=c++11 -o $(BIN)/ejercicio5 $(OBJ)/ejercicio5.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h $(INC)/utilidades.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+$(OBJ)/ejercicio5.o: $(SRC)/ejercicio5.cpp $(INC)/MatrizDispersa.h $(INC)/Valor.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio5.o $(SRC)/ejercicio5.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
+$(OBJ)/MatrizDispersa.o: $(SRC)/MatrizDispersa.cpp $(INC)/MatrizDispersa.h $(INC)/Valor.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/MatrizDispersa.o $(SRC)/MatrizDispersa.cpp
 
-$(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
+$(OBJ)/Valor.o: $(SRC)/Valor.cpp $(INC)/Valor.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Valor.o $(SRC)/Valor.cpp
 
 
-
-$(LIB)/libformas.a: $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+$(LIB)/libformas.a: $(OBJ)/MatrizDispersa.o $(OBJ)/Valor.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/MatrizDispersa.o $(OBJ)/Valor.o
 
 #_______LIMPIEZA________
 
@@ -39,7 +38,7 @@ clean:
 	rm $(LIB)/*.a
 
 mrproper: clean
-	rm $(BIN)/ejercicio2
+	rm $(BIN)/ejercicio5
 
 #_______DOCUMENTACION____
 
@@ -49,4 +48,4 @@ documentacion:
 #___________RUN_ONLY_WINDOWS_______
 
 run:
-	$(BIN)/ejercicio2
+	$(BIN)/ejercicio5
