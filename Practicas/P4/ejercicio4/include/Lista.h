@@ -15,6 +15,8 @@ public:
   Lista(const Lista& l);
   ~Lista();
 
+  void insertar(Celda *pCelda);
+
   friend ostream& operator<<(ostream& os,const Lista& l);
 
 };

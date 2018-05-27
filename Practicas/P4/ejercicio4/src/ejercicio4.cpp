@@ -16,6 +16,15 @@ int main()
 
   Lista *l = new Lista(*c);
 
+  Celda *m = new Celda(8);
+  l->insertar(m);
+
   cout << *l << endl;
+
+  Lista *l2 = new Lista(*l);
+
+  cout << *l2 << endl;
+
+
   return 0;
 }

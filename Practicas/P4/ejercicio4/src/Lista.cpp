@@ -18,10 +18,24 @@ Lista::Lista(const Celda& c)
 
 Lista::Lista(const Lista& l)
 {
+  this->contenido = new Celda(*l.contenido);
 
 }
 
 Lista::~Lista()
 {
+  while(contenido!=0)
+  {
+    Celda *aux = contenido;
+    contenido = aux->getCelda();
+    delete aux;
+  }
+}
 
+void Lista::insertar(Celda *pCelda)
+{
+  Celda *ce = this->contenido;
+  while(ce->getCelda()!=0) ce = ce->getCelda();
+
+  ce->asignarSiguiente(pCelda);
 }
