@@ -22,7 +22,8 @@ Valor::Valor(const Valor& v)
 
 Valor::~Valor()
 {
-  fil = col = 0;
+  fil = 0;
+  col = 0;
   val = 0.0;
 }
 
@@ -54,4 +55,16 @@ void Valor::setCol(int c)
 void Valor::setVal(double v)
 {
   this->val = v;
+}
+
+Valor& Valor::operator=(const Valor& v)
+{
+  if(this!=&v)
+  {
+    this->fil = v.fil;
+    this->col = v.col;
+    this->val = v.val;
+  }
+
+  return *this;
 }

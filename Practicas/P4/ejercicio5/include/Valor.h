@@ -25,6 +25,7 @@ public:
   void setCol(int c);
   void setVal(double v);
 
+  Valor& operator=(const Valor& v);
   friend ostream& operator<<(ostream& os,const Valor& v);
 };
 

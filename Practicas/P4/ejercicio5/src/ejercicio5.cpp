@@ -10,5 +10,21 @@ int main()
 
   cout << v << endl;
 
+  Valor *va = new Valor(2,2,5.0);
+
+  MatrizDispersa *m = new MatrizDispersa(3,3,va,1);
+
+  cout << *m << endl;
+
+  MatrizDispersa *ma = m;
+
+  cout << *ma << endl;
+
+  ma = *ma+*m;
+
+  cout << *ma << endl;
+
+  delete m;
+
   return 0;
 }
