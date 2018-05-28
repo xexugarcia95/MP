@@ -25,9 +25,19 @@ MatrizDispersa::MatrizDispersa(const MatrizDispersa& m)
   valores = m.valores;
 }
 
-MatrizDispersa::MatrizDispersa(int *f,int *col,Valor *val)
+MatrizDispersa::MatrizDispersa(int* f,int* col,double* val,int num)
 {
-  //......
+
+
+  nfilas = ncolumnas = num;
+  numeroValores = num;
+  valores = new Valor[numeroValores];
+  for(int i=0;i<num;i++)
+  {
+    valores[i].setFil(f[i]);
+    valores[i].setCol(col[i]);
+    valores[i].setVal(val[i]);
+  }
 }
 
 MatrizDispersa::~MatrizDispersa()
@@ -38,13 +48,6 @@ MatrizDispersa::~MatrizDispersa()
   valores = 0;
 }
 
-int MatrizDispersa::getTam()
-{
-  Valor *val = &(valores[0]);
-  int len = sizeof(val)/sizeof(Valor);
-
-  return len;
-}
 
 MatrizDispersa* MatrizDispersa::operator+(const MatrizDispersa& m)
 {

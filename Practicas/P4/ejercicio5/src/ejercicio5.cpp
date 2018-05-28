@@ -24,6 +24,25 @@ int main()
 
   cout << *ma << endl;
 
+  int *f = new int[3];
+  f[0] = 1;
+  f[1] = 2;
+  f[2] = 3;
+
+  int *c = new int[3];
+  c[0] = 1;
+  c[1] = 2;
+  c[2] = 3;
+
+  double *val = new double[3];
+  val[0] = 1.0;
+  val[1] = 2.0;
+  val[2] = 3.0;
+
+  MatrizDispersa *mat = new MatrizDispersa(f,c,val,3);
+  cout << "Constructor personalizado\n";
+  cout << *mat << endl;
+
   delete m;
 
   return 0;

@@ -22,13 +22,15 @@ $(OBJ)/ejercicio5.o: $(SRC)/ejercicio5.cpp $(INC)/MatrizDispersa.h $(INC)/Valor.
 $(OBJ)/MatrizDispersa.o: $(SRC)/MatrizDispersa.cpp $(INC)/MatrizDispersa.h $(INC)/Valor.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/MatrizDispersa.o $(SRC)/MatrizDispersa.cpp
 
+
 $(OBJ)/Valor.o: $(SRC)/Valor.cpp $(INC)/Valor.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Valor.o $(SRC)/Valor.cpp
 
 
+
 $(LIB)/libformas.a: $(OBJ)/MatrizDispersa.o $(OBJ)/Valor.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/MatrizDispersa.o $(OBJ)/Valor.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/MatrizDispersa.o $(OBJ)/Valor.o 
 
 #_______LIMPIEZA________
 
