@@ -1,6 +1,6 @@
 #Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
-#Descripcion:	Practica 4 ejercicio 2
+#Descripcion:	Practica 4 ejercicio 6
 
 
 BIN = bin
