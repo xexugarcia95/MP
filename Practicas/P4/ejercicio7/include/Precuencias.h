@@ -19,8 +19,8 @@ public:
 
   void agregarValor(int val);
 
-  bool operator==(const Precuencias& p1,const Precuencias& p2);
-  bool operator!=(const Precuencias& p1,const Precuencias& p2);
+  bool operator==(const Precuencias& p);
+  bool operator!=(const Precuencias& p);
   friend ostream& operator<<(ostream& os,const Precuencias& p);
 
 };

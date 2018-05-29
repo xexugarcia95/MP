@@ -27,11 +27,11 @@ void Precuencias::agregarValor(int val)
 
 }
 
-bool Precuencias::operator==(const Precuencias& p1,const Precuencias& p2)
+bool Precuencias::operator==(const Precuencias& p)
 {
 
 }
-bool Precuencias::operator!=(const Precuencias& p1,const Precuencias& p2)
+bool Precuencias::operator!=(const Precuencias& p)
 {
-  return !(p1==p2);
+  return !(*this==p);
 }
