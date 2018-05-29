@@ -13,8 +13,17 @@ private:
 public:
 
   Pareja();
+  Pareja(int d);
   Pareja(const Pareja& p);
   ~Pareja();
+
+  int getDato();
+  int getNveces();
+  void setNveces(int n);
+
+  Pareja& operator=(const Pareja& p);
+  bool operator==(const Pareja& p);
+  bool operator!=(const Pareja& p);
 
   friend ostream& operator<<(ostream& os,const Pareja& p);
 };

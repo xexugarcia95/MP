@@ -14,6 +14,7 @@ private:
 
 public:
   Precuencias();
+  Precuencias(const Pareja& p);
   Precuencias(const Precuencias& p);
   ~Precuencias();
 
@@ -27,7 +28,11 @@ public:
 
 inline ostream& operator<<(ostream& os,const Precuencias& p)
 {
-
+  os << "n. pares: " << p.npares << endl;
+  os << "Parejas: " << endl;
+  for(int i=0;i<p.npares;i++) os << p.parejas[i] << " ";
+  os << endl;
+  return os;
 }
 
 #endif
