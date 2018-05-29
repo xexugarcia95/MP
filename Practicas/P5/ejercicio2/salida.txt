@@ -1,0 +1,10 @@
+Nombre del archivo: eleccionesA.txt
+Numero de votaciones: 48
+El partido A ha obtenido 19 votos
+El partido B ha obtenido 57 votos
+El partido C ha obtenido 30 votos
+El partido D ha obtenido 24 votos
+El partido E ha obtenido 13 votos
+El partido F ha obtenido 6 votos
+El partido G ha obtenido 9 votos
+El partido H ha obtenido 7 votos
