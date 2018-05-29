@@ -10,26 +10,23 @@ OBJ = obj
 LIB = lib
 DOC = doc
 
-all: $(BIN)/ejercicio2
+all: $(BIN)/ejercicio8
 
-$(BIN)/ejercicio2: $(OBJ)/ejercicio2.o $(LIB)/libformas.a
-	g++ -std=c++11 -o $(BIN)/ejercicio2 $(OBJ)/ejercicio2.o -L$(LIB) -lformas
+$(BIN)/ejercicio8: $(OBJ)/ejercicio8.o $(LIB)/libformas.a
+	g++ -std=c++11 -o $(BIN)/ejercicio8 $(OBJ)/ejercicio8.o -L$(LIB) -lformas
 	@echo Construyendo ejecutable en $(BIN)
 
-$(OBJ)/ejercicio2.o: $(SRC)/ejercicio2.cpp $(INC)/BigInt.h $(INC)/utilidades.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio2.o $(SRC)/ejercicio2.cpp
+$(OBJ)/ejercicio8.o: $(SRC)/ejercicio8.cpp $(INC)/Menu.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio8.o $(SRC)/ejercicio8.cpp
 
-$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
-
-$(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INC)/BigInt.h
-	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/BigInt.o $(SRC)/BigInt.cpp
+$(OBJ)/Menu.o: $(SRC)/Menu.cpp $(INC)/Menu.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Menu.o $(SRC)/Menu.cpp
 
 
 
-$(LIB)/libformas.a: $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+$(LIB)/libformas.a: $(OBJ)/Menu.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/BigInt.o $(OBJ)/utilidades.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/Menu.o
 
 #_______LIMPIEZA________
 
@@ -39,7 +36,7 @@ clean:
 	rm $(LIB)/*.a
 
 mrproper: clean
-	rm $(BIN)/ejercicio2
+	rm $(BIN)/ejercicio8
 
 #_______DOCUMENTACION____
 
@@ -49,4 +46,4 @@ documentacion:
 #___________RUN_ONLY_WINDOWS_______
 
 run:
-	$(BIN)/ejercicio2
+	$(BIN)/ejercicio8
