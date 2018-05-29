@@ -1,6 +1,6 @@
 #Nombre:		Makefile
 #Autor:			Jesús Manuel García Palma
-#Descripcion:	Practica 4 ejercicio 2
+#Descripcion:	Practica 4 ejercicio 8
 
 
 BIN = bin
@@ -19,14 +19,16 @@ $(BIN)/ejercicio8: $(OBJ)/ejercicio8.o $(LIB)/libformas.a
 $(OBJ)/ejercicio8.o: $(SRC)/ejercicio8.cpp $(INC)/Menu.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/ejercicio8.o $(SRC)/ejercicio8.cpp
 
-$(OBJ)/Menu.o: $(SRC)/Menu.cpp $(INC)/Menu.h
+$(OBJ)/Menu.o: $(SRC)/Menu.cpp $(INC)/Menu.h $(INC)/utilidades.h
 	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/Menu.o $(SRC)/Menu.cpp
 
+$(OBJ)/utilidades.o: $(SRC)/utilidades.cpp $(INC)/utilidades.h
+	g++ -std=c++11 -c -I$(INC) -o $(OBJ)/utilidades.o $(SRC)/utilidades.cpp
 
 
-$(LIB)/libformas.a: $(OBJ)/Menu.o
+$(LIB)/libformas.a: $(OBJ)/Menu.o $(OBJ)/utilidades.o
 	@echo Construyendo libreria
-	ar rvs $(LIB)/libformas.a $(OBJ)/Menu.o
+	ar rvs $(LIB)/libformas.a $(OBJ)/Menu.o $(OBJ)/utilidades.o
 
 #_______LIMPIEZA________
 
