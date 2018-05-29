@@ -1,5 +1,5 @@
 #include "Skyline.h"
-
+#include <cassert>
 Skyline::Skyline()
 {
   abscisas = 0;
@@ -39,8 +39,8 @@ Skyline::~Skyline()
   n = 0;
 }
 
-double Skyline::operator[](int i) //Terminar esto mañana
+double& Skyline::operator[](int i)
 {
-  assert(i>=0(); assert(i<=n);
+  assert(i>=0); assert(i<=n);
   return abscisas[i];
 }
